@@ -1,12 +1,20 @@
-﻿using System;
+﻿using GameOfLife_1_iteration.Initialize;
+using GameOfLife_1_iteration.run;
 
-class Program
+namespace GameOfLife_1_iteration
 {
-    static void Main(string[] args)
+    class Program
     {
-        Console.WriteLine("Conway's Game of Life");
+        static void Main(string[] args)
+        {
+            var boardSize = new GetBoardSize();
+            boardSize.PromptForSize();
 
-        GameOfLife game = new GameOfLife();
-        game.Start();
+            var boardInitializer = new InitializeBoard(boardSize.Width, boardSize.Height);
+
+            var gameRunner = new RunGame(boardSize.Width, boardSize.Height, boardInitializer.Board);
+            gameRunner.Start();
+        }
     }
 }
+
