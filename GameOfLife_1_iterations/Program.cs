@@ -1,5 +1,4 @@
 ﻿using GameOfLife_1_iteration.Initialize;
-using GameOfLife_1_iteration.run;
 using System.Diagnostics.CodeAnalysis;
 
 namespace GameOfLife_1_iteration
