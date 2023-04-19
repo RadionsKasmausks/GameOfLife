@@ -1,5 +1,6 @@
 ﻿using GameOfLife_1_iteration.Initialize;
 using GameOfLife_1_iteration.run;
+using System.Diagnostics.CodeAnalysis;
 
 namespace GameOfLife_1_iteration
 {
@@ -7,14 +8,17 @@ namespace GameOfLife_1_iteration
     {
         static void Main(string[] args)
         {
-            var boardSize = new GetBoardSize();
-            boardSize.PromptForSize();
+            var getBoardSize = new BoardSize();
+            getBoardSize.PromptForSize();
 
-            var boardInitializer = new InitializeBoard(boardSize.Width, boardSize.Height);
+            bool[,] board = BoardInitializer.Initialize(getBoardSize.Width, getBoardSize.Height);
 
-            var gameRunner = new RunGame(boardSize.Width, boardSize.Height, boardInitializer.Board);
-            gameRunner.Start();
-        }
+            var gameRunner = new Game(getBoardSize.Width, getBoardSize.Height, board);
+            gameRunner.Run();
+        }   
     }
+
+    
+
 }
 

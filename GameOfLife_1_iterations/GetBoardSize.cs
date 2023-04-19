@@ -1,7 +1,9 @@
-﻿public class GetBoardSize
+﻿public class BoardSize
 {
     private const int _minWidth = 10;
     private const int _minHeight = 10;
+    private const int _maxWidth = 80;
+    private const int _maxHeight = 50;
 
     private int width;
     private int height;
@@ -24,18 +26,18 @@
         Console.WriteLine($"Enter the width of the game board (minimum {_minWidth}):");
         width = ParseNumber(UserEnteredNumber());
 
-        while (width < _minWidth)
+        while (width < _minWidth || width > _maxWidth)
         {
-            Console.Write($"Width must be at least {_minWidth}! Enter the valid number: ");
+            Console.Write($"Width must be minimum {_minWidth} and maximum {_maxWidth}! Enter the valid number: ");
             width = ParseNumber(UserEnteredNumber());
         }
 
-        Console.WriteLine($"Enter the height of the game board (minimum {_minHeight}: ");
+        Console.WriteLine($"Enter the height of the game board (minimum {_minHeight}): ");
         height = ParseNumber(UserEnteredNumber());
 
-        while (height < _minHeight)
+        while (height < _minHeight || height > _maxHeight)
         {
-            Console.Write($"Height must be at least {_minHeight}! Enter valid number: ");
+            Console.Write($"Height must be minimu {_minHeight} and maximum {_maxHeight}! Enter valid number: ");
             height = ParseNumber(UserEnteredNumber());
         }
     }
