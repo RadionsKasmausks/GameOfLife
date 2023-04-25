@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,35 +20,32 @@ namespace GameOfLife_1_iterations
         public int Height => _height;
         public int Width => _width;
 
-        private string UserEnteredNumber() => Console.ReadLine();
-
-        private int ParseNumber(string text)
+        private int GetIntegerInput(string prompt, int _minValue, int _maxValue)
         {
-            return int.Parse(text);
+            int input;
+            bool isValidInput;
+
+            do
+            {
+                Console.WriteLine($"{prompt} (minimum {_minValue} and maximum {_maxValue}): ");
+                string userInput = Console.ReadLine();
+
+                isValidInput = int.TryParse(userInput, out input) && input >= _minValue && input <= _maxValue;
+
+                if (!isValidInput)
+                {
+                    Console.WriteLine($"Invalid input. Please enter a valid integer.");
+                }
+
+            } while (!isValidInput);
+
+            return input;
         }
 
         public void GetSize()
         {
-            Console.WriteLine($"Enter the height of the game board(minimum {_minHeight} and maximum {_maxHeight}): ");
-            _height = ParseNumber(UserEnteredNumber());
-
-            while (_height < _minHeight || _height > _maxHeight)
-            {
-                Console.WriteLine("Enter valid number: ");
-                _height = ParseNumber(UserEnteredNumber());
-            }
-
-            Console.WriteLine($"Enter the width of the game board(minimum {_minWidth} and maximum {_maxWidth}): ");
-            _width = ParseNumber(UserEnteredNumber());
-
-            while (_width < _minWidth || _width > _maxWidth)
-            {
-                Console.WriteLine("Enter valid number: ");
-                _width = ParseNumber(UserEnteredNumber());
-
-            }
-            _height = Height;
-            _width = Width;
+            _height = GetIntegerInput("Enter the height of the game board", _minHeight, _maxHeight);
+            _width = GetIntegerInput("Enter the width of the game board", _minWidth, _maxWidth);
         }
     }
 }

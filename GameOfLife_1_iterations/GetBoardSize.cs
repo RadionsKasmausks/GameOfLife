@@ -2,9 +2,6 @@
 {
     public class BoardSizeInput
     {
-        private int _width;
-        private int _height;
-
         public int Width;
         public int Height;
 

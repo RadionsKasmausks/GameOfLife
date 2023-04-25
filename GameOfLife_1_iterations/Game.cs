@@ -4,18 +4,16 @@ namespace GameOfLife_1_iterations.Game
 {
     public class Game
     {
+        private bool[,] _board;
         private int _width;
         private int _height;
-        private bool[,] _board;
 
-        public Game(int _width, int _height, bool[,] _board)
+        public Game(int width, int height, bool[,] _board)
         {
-            this._width = _width;
-            this._height = _height;
+            this._width = width;
+            this._height = height;
             this._board = _board;
-        }
-
-       
+        }    
 
         public void Run()
         {
@@ -24,7 +22,7 @@ namespace GameOfLife_1_iterations.Game
 
             while (true)
             {
-                boardrenderer.DrawBoard(_board);
+                boardrenderer.DrawBoard(_width,_height,_board);
 
                 _board = gamerules.UpdateBoard(_width, _height, _board);
 

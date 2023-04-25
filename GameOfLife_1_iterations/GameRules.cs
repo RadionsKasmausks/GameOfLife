@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-
-
-namespace GameOfLife_1_iterations.Game
+﻿namespace GameOfLife_1_iterations.Game
 {
     internal class GameRules
     {
@@ -51,14 +43,14 @@ namespace GameOfLife_1_iterations.Game
 
             int count = 0;
 
-            for (int i = -1; i <= 1; i++)
+            for (int rowOffSet = -1; rowOffSet <= 1; rowOffSet++)
             {
-                for (int j = -1; j <= 1; j++)
+                for (int colOffSet = -1; colOffSet <= 1; colOffSet++)
                 {
-                    if (i == 0 && j == 0) continue;
+                    if (rowOffSet == 0 && colOffSet == 0) continue;
 
-                    int neighborsX = x + i;
-                    int neighborsY = y + j;
+                    int neighborsX = x + rowOffSet;
+                    int neighborsY = y + colOffSet;
 
                     if (neighborsX >= 0 && neighborsX < _width && neighborsY >= 0 && neighborsY < _height)
                     {

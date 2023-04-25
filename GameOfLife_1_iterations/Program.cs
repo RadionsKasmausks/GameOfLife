@@ -1,7 +1,5 @@
 ﻿using GameOfLife_1_iterations;
 using GameOfLife_1_iterations.Game;
-using System.Security.Cryptography.X509Certificates;
-//using GameOfLife_1_iterations.Initialize;
 
 namespace GameOfLife_1_iteration
 {
@@ -9,16 +7,12 @@ namespace GameOfLife_1_iteration
     {
         static void Main(string[] args)
         {
-            var areasize = new InputData();
-            areasize.GetSize();
+            var dataCollector = new InputData();
+            dataCollector.GetSize();
 
-            var boardSize = new BoardSizeInput(areasize.Width, areasize.Height);
-            int width = boardSize.Width;
-            int height = boardSize.Height;
+            bool[,] board = Game.Initialize(dataCollector.Width, dataCollector.Height);
 
-            bool[,] board = Game.Initialize(boardSize.Width, boardSize.Height);
-
-            var gameRunner = new Game(boardSize.Width, boardSize.Height, board);
+            var gameRunner = new Game(dataCollector.Width, dataCollector.Height, board);
             gameRunner.Run();
         }
     }
