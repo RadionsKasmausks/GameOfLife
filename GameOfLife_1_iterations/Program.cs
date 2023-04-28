@@ -1,12 +1,20 @@
-﻿using System;
+﻿using GameOfLife_1_iterations;
+using GameOfLife_1_iterations.Game;
 
-class Program
+namespace GameOfLife_1_iteration
 {
-    static void Main(string[] args)
+    class Program
     {
-        Console.WriteLine("Conway's Game of Life");
+        static void Main(string[] args)
+        {
+            var dataCollector = new InputData();
+            dataCollector.GetSize();
 
-        GameOfLife game = new GameOfLife();
-        game.Start();
+            bool[,] board = Game.Initialize(dataCollector.Width, dataCollector.Height);
+
+            var gameRunner = new Game(dataCollector.Width, dataCollector.Height, board);
+            gameRunner.Run();
+        }
     }
 }
+
