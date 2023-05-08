@@ -1,12 +1,11 @@
-﻿using GameOfLife_1_iterations;
-using GameOfLife_1_iterations.Game;
-
-namespace GameOfLife_1_iteration
+﻿namespace GameOfLife_Logic
 {
     class Program
     {
         static void Main(string[] args)
         {
+
+
             var dataCollector = new InputData();
             dataCollector.GetSize();
 

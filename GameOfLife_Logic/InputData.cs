@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameOfLife_1_iterations
+﻿namespace GameOfLife_Logic
 {
     public class InputData
     {
-        private const int _minWidth = 10;
-        private const int _minHeight = 10;
+        private const int _minWidth = 40;
+        private const int _minHeight = 20;
         private const int _maxWidth = 80;
-        private const int _maxHeight = 25;
+        private const int _maxHeight = 40;
 
         private int _width;
         private int _height;
@@ -27,7 +20,7 @@ namespace GameOfLife_1_iterations
 
             do
             {
-                Console.WriteLine($"{prompt} (minimum {_minValue} and maximum {_maxValue}): ");
+                Console.WriteLine($"{prompt}\n (minimum {_minValue} and maximum {_maxValue}): ");
                 string userInput = Console.ReadLine();
 
                 isValidInput = int.TryParse(userInput, out input) && input >= _minValue && input <= _maxValue;
