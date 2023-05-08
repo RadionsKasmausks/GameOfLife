@@ -1,4 +1,4 @@
-﻿namespace GameOfLife_1_iterations
+﻿namespace GameOfLife_Logic
 {
     public class BoardSizeInput
     {
