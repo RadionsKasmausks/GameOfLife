@@ -8,7 +8,7 @@ namespace GameOfLife_Logic
         private int _aliveCount = 0;
 
         public int AliveCount => _aliveCount;   
-        public int CountAliveCells(int width,int height, bool[,] _board)
+        public static int CountAliveCells(int width,int height, bool[,] _board)
         {
             int aliveCount = 0;
             for(int y = 0; y < height; y++)

@@ -3,9 +3,11 @@
 
     public class GameRules
     {
+
         public bool[,] UpdateBoard(int _width, int _height, bool[,] _board)
         {
             bool[,] newBoard = new bool[_width, _height];
+
             for (int x = 0; x < _width; x++)
             {
                 for (int y = 0; y < _height; y++)
@@ -13,7 +15,6 @@
                     int neighbors = CountNeighbors(x, y, _width, _height, _board);
                     if (_board[x, y])
                     {
-
                         if (neighbors < 2 || neighbors > 3)
                         {
                             newBoard[x, y] = false;
@@ -39,6 +40,7 @@
 
             return newBoard;
         }
+
 
         private int CountNeighbors(int x, int y, int _width, int _height, bool[,] _board)
         {
