@@ -1,19 +1,22 @@
 ﻿namespace GameOfLife_Logic
 {
-
-    public class GameRules
+    public static class GameRules
     {
-
-        public bool[,] UpdateBoard(int _width, int _height, bool[,] _board)
+        public static bool[,] UpdateBoard(Game game)
         {
-            bool[,] newBoard = new bool[_width, _height];
+            var height = game.Height;
+            var width = game.Width;
+            var board = game.Board;
 
-            for (int x = 0; x < _width; x++)
+            bool[,] newBoard = new bool[width, height];
+
+
+            for (int x = 0; x < width; x++)
             {
-                for (int y = 0; y < _height; y++)
+                for (int y = 0; y < height; y++)
                 {
-                    int neighbors = CountNeighbors(x, y, _width, _height, _board);
-                    if (_board[x, y])
+                    int neighbors = CountNeighbors(x, y, width,height,board);
+                    if (board[x, y])
                     {
                         if (neighbors < 2 || neighbors > 3)
                         {
@@ -37,12 +40,11 @@
                     }
                 }
             }
-
+            game.Iterations++;
             return newBoard;
         }
 
-
-        private int CountNeighbors(int x, int y, int _width, int _height, bool[,] _board)
+        private static int CountNeighbors(int x, int y, int _width, int _height, bool[,] _board)
         {
             int count = 0;
             for (int rowOffSet = -1; rowOffSet <= 1; rowOffSet++)

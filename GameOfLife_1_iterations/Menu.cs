@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace GameOfLife_Logic
 {
-    public class Commands
+    public class Menu
     {
         public void WriteCommands()
         {
@@ -14,7 +11,8 @@ namespace GameOfLife_Logic
             Console.WriteLine("| Button [S] to Save game!    | \t");
             Console.WriteLine("| Button [L] to Load game!    | \t");
             Console.WriteLine("| Button [D] to Delete game!  | \t");
-            Console.WriteLine("| Button [ESC] to Change game!| \t");
+            Console.WriteLine("| Button [C] to Change game!  | \t");
+            Console.WriteLine("| Button [Q] to Quit game!    | \t");
             Console.WriteLine("+-----------------------------+");
         }
     }
